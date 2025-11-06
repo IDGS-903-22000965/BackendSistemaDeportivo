@@ -20,7 +20,7 @@ namespace TorneoManager.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCanchas()
         {
-            var canchas = await _context.Canchas.Where(c => c.Activo).ToListAsync();
+            var canchas = await _context.Canchas.ToListAsync();
             return Ok(canchas);
         }
 
@@ -52,6 +52,9 @@ namespace TorneoManager.API.Controllers
             canchaExistente.Direccion = cancha.Direccion;
             canchaExistente.Latitud = cancha.Latitud;
             canchaExistente.Longitud = cancha.Longitud;
+            canchaExistente.Capacidad = cancha.Capacidad;
+            canchaExistente.TipoSuperficie = cancha.TipoSuperficie;
+            canchaExistente.Activo = cancha.Activo;
 
             await _context.SaveChangesAsync();
             return Ok(canchaExistente);
