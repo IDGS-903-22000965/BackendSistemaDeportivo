@@ -74,5 +74,16 @@ namespace TorneoManager.API.Controllers
             await _context.SaveChangesAsync();
             return Ok(equipoExistente);
         }
+        [HttpPost]
+        [Authorize(Roles = "Administrador")]
+        public async Task<IActionResult> CreateEquipo([FromBody] Equipo equipo)
+        {
+            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            equipo.CapitanID = usuarioId;
+
+            _context.Equipos.Add(equipo);
+            await _context.SaveChangesAsync();
+            return Ok(equipo);
+        }
     }
 }
