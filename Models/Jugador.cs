@@ -16,5 +16,8 @@ namespace TorneoManager.API.Models
         public DateTime? FechaNacimiento { get; set; }
         public string Estatus { get; set; } = "Activo";
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
+        // Sergio
+        public virtual Usuario Usuario { get; set; }
+        public virtual Equipo Equipo { get; set; }
     }
 }

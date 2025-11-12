@@ -21,5 +21,8 @@ namespace TorneoManager.API.Models
         public string EstatusPagoArbitraje { get; set; } = "Pendiente";
         public DateTime? FechaPagoArbitraje { get; set; }
         public DateTime? FechaFinalizacion { get; set; }
+        // Sergio
+        public virtual Equipo EquipoLocal { get; set; }
+        public virtual Equipo EquipoVisitante { get; set; }
     }
 }

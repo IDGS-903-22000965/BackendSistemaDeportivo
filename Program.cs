@@ -45,6 +45,12 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configurar para escuchar en todas las interfaces
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5022); // HTTP en todas las IPs
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

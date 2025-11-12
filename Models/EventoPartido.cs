@@ -15,5 +15,7 @@ namespace TorneoManager.API.Models
         public int? AsistenciaJugadorID { get; set; }
         public string? Comentarios { get; set; }
         public DateTime FechaHoraEvento { get; set; } = DateTime.Now;
+        // Sergio
+        public virtual Jugador Jugador { get; set; }
     }
 }
